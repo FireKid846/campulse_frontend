@@ -34,4 +34,95 @@ api.interceptors.response.use(
   }
 );
 
+// Mock API for Demo/MVP purposes
+// This interceptor simulates a backend by returning mock data
+api.interceptors.request.use(async (config) => {
+  // Simulate network delay
+  await new Promise(resolve => setTimeout(resolve, 500));
+
+  const { url, method, data } = config;
+
+  // Mock Auth Endpoints
+  if (url === '/auth/login' && method === 'post') {
+    return Promise.resolve({
+      data: {
+        access_token: 'mock-jwt-token-12345',
+        user: {
+          id: 1,
+          full_name: 'Test Student',
+          email: data.username,
+          school: 'UNILAG',
+          department: 'Computer Science',
+          level: 300
+        }
+      },
+      status: 200,
+      statusText: 'OK',
+      headers: {},
+      config,
+    } as any);
+  }
+
+  if (url === '/auth/signup' && method === 'post') {
+    return Promise.resolve({
+      data: { message: 'User created successfully' },
+      status: 201,
+      statusText: 'Created',
+      headers: {},
+      config,
+    } as any);
+  }
+
+  if (url === '/auth/me' && method === 'get') {
+    return Promise.resolve({
+      data: {
+        id: 1,
+        full_name: 'Test Student',
+        email: 'student@university.edu.ng',
+        school: 'UNILAG',
+        department: 'Computer Science',
+        level: 300
+      },
+      status: 200,
+      statusText: 'OK',
+      headers: {},
+      config,
+    } as any);
+  }
+
+  // Mock Data Endpoints
+  if (url === '/tasks' && method === 'get') {
+    return Promise.resolve({
+      data: [], // Return empty list or mock tasks
+      status: 200,
+      statusText: 'OK',
+      headers: {},
+      config,
+    } as any);
+  }
+
+  if (url === '/opportunities' && method === 'get') {
+    return Promise.resolve({
+      data: [],
+      status: 200,
+      statusText: 'OK',
+      headers: {},
+      config,
+    } as any);
+  }
+
+  if (url === '/tutors' && method === 'get') {
+    return Promise.resolve({
+      data: [],
+      status: 200,
+      statusText: 'OK',
+      headers: {},
+      config,
+    } as any);
+  }
+
+  // Pass through other requests (which will likely fail if no backend)
+  return config;
+});
+
 export default api;

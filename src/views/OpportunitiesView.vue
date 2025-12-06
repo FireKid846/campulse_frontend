@@ -41,7 +41,7 @@ const getCategoryColor = (category: string) => {
     case 'scholarship': return 'text-accent bg-accent/10 border-accent/20';
     case 'internship': return 'text-warning bg-warning/10 border-warning/20';
     case 'event': return 'text-purple-400 bg-purple-400/10 border-purple-400/20';
-    default: return 'text-secondary bg-white/5 border-white/10';
+    default: return 'text-secondary bg-primary/5 border-primary/10';
   }
 };
 </script>
@@ -59,8 +59,8 @@ const getCategoryColor = (category: string) => {
           @click="handleCategoryChange(category.id)"
           class="px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all border"
           :class="activeCategory === category.id 
-            ? 'bg-accent text-white border-accent' 
-            : 'bg-surface text-secondary border-white/10 hover:border-white/30'"
+            ? 'bg-accent text-primary border-accent' 
+            : 'bg-surface text-secondary border-primary/10 hover:border-primary/30'"
         >
           {{ category.label }}
         </button>
@@ -72,7 +72,7 @@ const getCategoryColor = (category: string) => {
         <p class="text-secondary">Finding opportunities...</p>
       </div>
 
-      <div v-else-if="filteredOpportunities.length === 0" class="text-center py-12 bg-surface rounded-xl border border-white/5">
+      <div v-else-if="filteredOpportunities.length === 0" class="text-center py-12 bg-surface rounded-xl border border-primary/5">
         <div class="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 text-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
         </div>
@@ -84,7 +84,7 @@ const getCategoryColor = (category: string) => {
         <div 
           v-for="opportunity in filteredOpportunities" 
           :key="opportunity.id"
-          class="bg-surface p-5 rounded-xl border border-white/5 hover:border-accent/30 transition-all group relative overflow-hidden"
+          class="bg-surface p-5 rounded-xl border border-primary/5 hover:border-accent/30 transition-all group relative overflow-hidden"
         >
           <div class="absolute top-0 right-0 p-4">
             <button 
@@ -108,7 +108,7 @@ const getCategoryColor = (category: string) => {
           <h3 class="text-lg font-bold text-primary mb-2 pr-8">{{ opportunity.title }}</h3>
           <p class="text-secondary text-sm mb-4 line-clamp-2">{{ opportunity.description }}</p>
 
-          <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-primary/5">
             <div class="text-xs text-secondary flex items-center gap-1">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               Deadline: {{ formatDate(opportunity.deadline) }}

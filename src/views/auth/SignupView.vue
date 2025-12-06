@@ -40,8 +40,8 @@ const handleSignup = async () => {
 
 <template>
   <div class="min-h-screen flex items-center justify-center bg-background p-4 py-12">
-    <div class="w-full max-w-md bg-surface p-8 rounded-2xl shadow-2xl border border-white/10 backdrop-blur-lg">
-      <h1 class="text-3xl font-bold text-primary mb-2 text-center">Join Campulse</h1>
+    <div class="w-full max-w-md bg-surface p-8 rounded-xl border-2 border-primary shadow-[8px_8px_0px_0px_rgba(0,46,33,1)]">
+      <h1 class="text-4xl font-extrabold text-primary mb-2 text-center tracking-tight">Join Campulse</h1>
       <p class="text-secondary text-center mb-8">Your smart academic companion awaits</p>
 
       <form @submit.prevent="handleSignup" class="space-y-4">
@@ -52,7 +52,7 @@ const handleSignup = async () => {
             type="text"
             id="name"
             required
-            class="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+            class="w-full bg-background border-2 border-primary/20 rounded-lg px-4 py-3 text-primary font-medium focus:outline-none focus:border-primary focus:shadow-[4px_4px_0px_0px_rgba(0,46,33,0.1)] transition-all placeholder:text-secondary/50"
             placeholder="John Doe"
           />
         </div>
@@ -64,7 +64,7 @@ const handleSignup = async () => {
             type="email"
             id="email"
             required
-            class="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+            class="w-full bg-background border-2 border-primary/20 rounded-lg px-4 py-3 text-primary font-medium focus:outline-none focus:border-primary focus:shadow-[4px_4px_0px_0px_rgba(0,46,33,0.1)] transition-all placeholder:text-secondary/50"
             placeholder="student@university.edu.ng"
           />
         </div>
@@ -76,7 +76,7 @@ const handleSignup = async () => {
             type="password"
             id="password"
             required
-            class="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+            class="w-full bg-background border-2 border-primary/20 rounded-lg px-4 py-3 text-primary font-medium focus:outline-none focus:border-primary focus:shadow-[4px_4px_0px_0px_rgba(0,46,33,0.1)] transition-all placeholder:text-secondary/50"
             placeholder="••••••••"
           />
         </div>
@@ -89,7 +89,7 @@ const handleSignup = async () => {
               type="text"
               id="school"
               required
-              class="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+              class="w-full bg-background border-2 border-primary/20 rounded-lg px-4 py-3 text-primary font-medium focus:outline-none focus:border-primary focus:shadow-[4px_4px_0px_0px_rgba(0,46,33,0.1)] transition-all placeholder:text-secondary/50"
               placeholder="UNILAG"
             />
           </div>
@@ -101,7 +101,7 @@ const handleSignup = async () => {
               type="text"
               id="department"
               required
-              class="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+              class="w-full bg-background border-2 border-primary/20 rounded-lg px-4 py-3 text-primary font-medium focus:outline-none focus:border-primary focus:shadow-[4px_4px_0px_0px_rgba(0,46,33,0.1)] transition-all placeholder:text-secondary/50"
               placeholder="Computer Science"
             />
           </div>
@@ -112,7 +112,7 @@ const handleSignup = async () => {
               v-model="level"
               id="level"
               required
-              class="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all appearance-none"
+              class="w-full bg-background border-2 border-primary/20 rounded-lg px-4 py-3 text-primary font-medium focus:outline-none focus:border-primary focus:shadow-[4px_4px_0px_0px_rgba(0,46,33,0.1)] transition-all appearance-none"
             >
               <option value="" disabled>Select</option>
               <option value="100">100</option>
@@ -132,7 +132,7 @@ const handleSignup = async () => {
         <button
           type="submit"
           :disabled="loading"
-          class="w-full bg-accent hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition-all transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-accent/20 mt-6"
+          class="w-full bg-accent text-primary font-bold py-3 rounded-lg border-2 border-primary shadow-[4px_4px_0px_0px_rgba(0,46,33,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all active:translate-x-[4px] active:translate-y-[4px] disabled:opacity-50 disabled:cursor-not-allowed mt-6"
         >
           <span v-if="loading">Creating Account...</span>
           <span v-else>Create Account</span>

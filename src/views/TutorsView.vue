@@ -29,7 +29,7 @@ const handleSearch = () => {
           @keyup.enter="handleSearch"
           type="text"
           placeholder="Search by course code (e.g. MTH 101)"
-          class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 pl-11 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+          class="w-full bg-surface border border-primary/10 rounded-xl px-4 py-3 pl-11 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
         />
         <div class="absolute left-4 top-3.5 text-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -37,7 +37,7 @@ const handleSearch = () => {
         <button 
           v-if="searchQuery"
           @click="handleSearch"
-          class="absolute right-3 top-2.5 bg-accent/10 text-accent px-3 py-1 rounded-lg text-xs font-medium hover:bg-accent hover:text-white transition-colors"
+          class="absolute right-3 top-2.5 bg-accent/10 text-primary px-3 py-1 rounded-lg text-xs font-medium hover:bg-accent hover:text-primary transition-colors"
         >
           Search
         </button>
@@ -49,7 +49,7 @@ const handleSearch = () => {
         <p class="text-secondary">Searching for tutors...</p>
       </div>
 
-      <div v-else-if="tutorStore.tutors.length === 0" class="text-center py-12 bg-surface rounded-xl border border-white/5">
+      <div v-else-if="tutorStore.tutors.length === 0" class="text-center py-12 bg-surface rounded-xl border border-primary/5">
         <div class="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 text-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
@@ -61,10 +61,10 @@ const handleSearch = () => {
         <div 
           v-for="tutor in tutorStore.tutors" 
           :key="tutor.id"
-          class="bg-surface p-5 rounded-xl border border-white/5 hover:border-accent/30 transition-all group"
+          class="bg-surface p-5 rounded-xl border border-primary/5 hover:border-accent/30 transition-all group"
         >
           <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold text-lg">
+            <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-primary font-bold text-lg">
               {{ tutor.full_name.charAt(0) }}
             </div>
             
@@ -72,7 +72,7 @@ const handleSearch = () => {
               <div class="flex justify-between items-start">
                 <h3 class="text-lg font-bold text-primary truncate flex items-center gap-1">
                   {{ tutor.full_name }}
-                  <svg v-if="tutor.verified" class="text-accent fill-accent" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg v-if="tutor.verified" class="text-primary fill-primary" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 </h3>
                 <div class="flex items-center gap-1 text-warning text-sm font-medium">
                   <span>{{ tutor.rating }}</span>
@@ -86,7 +86,7 @@ const handleSearch = () => {
                 <span 
                   v-for="course in tutor.courses" 
                   :key="course"
-                  class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-xs text-secondary"
+                  class="px-2 py-0.5 rounded-md bg-primary/5 border border-primary/10 text-xs text-secondary"
                 >
                   {{ course }}
                 </span>

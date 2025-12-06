@@ -63,7 +63,7 @@ const priorityColor = (priority: string) => {
     case 'high': return 'text-error bg-error/10 border-error/20';
     case 'medium': return 'text-warning bg-warning/10 border-warning/20';
     case 'low': return 'text-success bg-success/10 border-success/20';
-    default: return 'text-secondary bg-white/5 border-white/10';
+    default: return 'text-secondary bg-primary/5 border-primary/10';
   }
 };
 
@@ -80,7 +80,7 @@ const formatDate = (dateString: string) => {
         <h1 class="text-2xl font-bold text-primary">Academic Planner</h1>
         <button 
           @click="showAddModal = true"
-          class="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center shadow-lg shadow-accent/20 hover:bg-blue-600 transition-colors"
+          class="w-10 h-10 rounded-full bg-accent text-primary flex items-center justify-center shadow-lg shadow-accent/20 hover:brightness-95 transition-colors"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
@@ -92,15 +92,15 @@ const formatDate = (dateString: string) => {
         <p class="text-secondary">Loading tasks...</p>
       </div>
 
-      <div v-else-if="taskStore.tasks.length === 0" class="text-center py-12 bg-surface rounded-xl border border-white/5">
-        <div class="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 text-secondary">
+      <div v-else-if="taskStore.tasks.length === 0" class="text-center py-12 bg-surface rounded-xl border border-primary/5">
+        <div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4 text-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
         </div>
         <h3 class="text-primary font-medium mb-1">No tasks yet</h3>
         <p class="text-secondary text-sm mb-4">Add assignments, exams, or study sessions.</p>
         <button 
           @click="showAddModal = true"
-          class="text-accent text-sm font-medium hover:underline"
+          class="text-primary font-bold text-sm hover:underline"
         >
           Create your first task
         </button>
@@ -110,13 +110,13 @@ const formatDate = (dateString: string) => {
         <div 
           v-for="task in sortedTasks" 
           :key="task.id"
-          class="bg-surface p-4 rounded-xl border border-white/5 flex items-start gap-4 group transition-all"
+          class="bg-surface p-4 rounded-xl border border-primary/5 flex items-start gap-4 group transition-all"
           :class="{ 'opacity-60': task.is_completed }"
         >
           <button 
             @click="toggleComplete(task)"
             class="mt-1 w-5 h-5 rounded border flex items-center justify-center transition-colors"
-            :class="task.is_completed ? 'bg-accent border-accent text-white' : 'border-secondary hover:border-accent'"
+            :class="task.is_completed ? 'bg-accent border-accent text-primary' : 'border-secondary hover:border-accent'"
           >
             <svg v-if="task.is_completed" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </button>
@@ -157,7 +157,7 @@ const formatDate = (dateString: string) => {
     <!-- Add Task Modal -->
     <div v-if="showAddModal" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 sm:p-6">
       <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" @click="showAddModal = false"></div>
-      <div class="relative w-full max-w-md bg-surface rounded-2xl p-6 shadow-2xl border border-white/10 animate-in slide-in-from-bottom-10 fade-in duration-200">
+      <div class="relative w-full max-w-md bg-surface rounded-2xl p-6 shadow-2xl border border-primary/10 animate-in slide-in-from-bottom-10 fade-in duration-200">
         <h2 class="text-xl font-bold text-primary mb-4">New Task</h2>
         
         <form @submit.prevent="handleAddTask" class="space-y-4">
@@ -167,7 +167,7 @@ const formatDate = (dateString: string) => {
               v-model="newTask.title"
               type="text" 
               required
-              class="w-full bg-background border border-white/10 rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              class="w-full bg-background border border-primary/10 rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
               placeholder="e.g., MTH 101 Assignment"
             />
           </div>
@@ -177,7 +177,7 @@ const formatDate = (dateString: string) => {
             <textarea 
               v-model="newTask.description"
               rows="3"
-              class="w-full bg-background border border-white/10 rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
+              class="w-full bg-background border border-primary/10 rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
               placeholder="Details about the task..."
             ></textarea>
           </div>
@@ -189,7 +189,7 @@ const formatDate = (dateString: string) => {
                 v-model="newTask.due_date"
                 type="datetime-local" 
                 required
-                class="w-full bg-background border border-white/10 rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                class="w-full bg-background border border-primary/10 rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
               />
             </div>
             
@@ -197,7 +197,7 @@ const formatDate = (dateString: string) => {
               <label class="block text-xs font-medium text-secondary mb-1">Priority</label>
               <select 
                 v-model="newTask.priority"
-                class="w-full bg-background border border-white/10 rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent appearance-none"
+                class="w-full bg-background border border-primary/10 rounded-lg px-3 py-2 text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent appearance-none"
               >
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
@@ -210,13 +210,13 @@ const formatDate = (dateString: string) => {
             <button 
               type="button" 
               @click="showAddModal = false"
-              class="flex-1 px-4 py-2 rounded-lg border border-white/10 text-secondary hover:bg-white/5 transition-colors"
+              class="flex-1 px-4 py-2 rounded-lg border border-primary/10 text-secondary hover:bg-primary/5 transition-colors"
             >
               Cancel
             </button>
             <button 
               type="submit" 
-              class="flex-1 px-4 py-2 rounded-lg bg-accent text-white font-medium hover:bg-blue-600 transition-colors shadow-lg shadow-accent/20"
+              class="flex-1 px-4 py-2 rounded-lg bg-accent text-primary font-bold hover:brightness-95 transition-colors shadow-lg shadow-accent/20"
             >
               Add Task
             </button>

@@ -7,18 +7,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Glossy Black Theme Palette
-        background: '#0a0a0a', // Very dark grey/black
-        surface: '#121212',    // Slightly lighter for cards/panels
-        primary: '#ffffff',    // White for primary text/accents
-        secondary: '#a1a1aa',  // Light grey for secondary text
-        accent: '#3b82f6',     // Blue accent (can be changed)
+        // New Theme Palette
+        background: '#f5f5f5', // Light Grey
+        surface: '#ffffff',    // Pure White
+        primary: '#002e21',    // Dark Green (Text)
+        secondary: '#4b5563',  // Gray-600 (Secondary Text)
+        accent: '#f9dc5c',     // Yellow
+        highlight: '#bfd8fd',  // Light Blue
         success: '#10b981',
         warning: '#f59e0b',
         error: '#ef4444',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Manrope', 'sans-serif'],
       },
     },
   },
