@@ -103,7 +103,7 @@ const Signup = () => {
             </div>
 
             <div className="auth-container">
-                <div className="auth-card animate-fadeIn" style={{ maxWidth: '600px', margin: '0 auto' }}>
+                <div className="auth-card animate-fadeIn">
                     <div className="auth-header">
                         <h1 className="auth-logo">CAMPULSE</h1>
                         <h2 className="auth-title">Create Account</h2>
@@ -244,6 +244,24 @@ const Signup = () => {
                             Already have an account?{' '}
                             <Link to="/login" className="auth-link-bold">Sign in</Link>
                         </p>
+                    </div>
+                </div>
+
+                <div className="auth-features">
+                    <div className="feature-card animate-slideInRight" style={{ animationDelay: '0.1s' }}>
+                        <div className="feature-icon">📚</div>
+                        <h3>Smart Planner</h3>
+                        <p>Never miss a deadline again</p>
+                    </div>
+                    <div className="feature-card animate-slideInRight" style={{ animationDelay: '0.2s' }}>
+                        <div className="feature-icon">🎯</div>
+                        <h3>Opportunities</h3>
+                        <p>Find gigs & scholarships</p>
+                    </div>
+                    <div className="feature-card animate-slideInRight" style={{ animationDelay: '0.3s' }}>
+                        <div className="feature-icon">👨‍🏫</div>
+                        <h3>Find Tutors</h3>
+                        <p>Get academic support</p>
                     </div>
                 </div>
             </div>
