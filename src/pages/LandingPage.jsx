@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Instagram, MessageCircle, ArrowRight } from 'lucide-react';
+import './CampulseLanding.css';
 
 const CampulseLanding = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -24,7 +25,6 @@ const CampulseLanding = () => {
   }, []);
 
   const handleGetStarted = () => {
-    // Navigate to login page
     window.location.href = '/login';
   };
 
@@ -76,107 +76,6 @@ const CampulseLanding = () => {
 
   return (
     <div className="min-h-screen bg-black">
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes shimmer {
-          0% {
-            background-position: -1000px 0;
-          }
-          100% {
-            background-position: 1000px 0;
-          }
-        }
-
-        [data-animate] {
-          opacity: 0;
-          transform: translateY(40px);
-          transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                      transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        [data-animate].visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .feature-card {
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .feature-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
-        }
-
-        .gradient-border {
-          position: relative;
-          background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
-        }
-
-        .gradient-border::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          padding: 1px;
-          background: linear-gradient(135deg, #22c55e, #f59e0b, #22c55e);
-          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-          -webkit-mask-composite: xor;
-          mask-composite: exclude;
-          border-radius: inherit;
-          opacity: 0;
-          transition: opacity 0.4s ease;
-        }
-
-        .gradient-border:hover::before {
-          opacity: 1;
-        }
-
-        .shimmer-button {
-          background: linear-gradient(
-            90deg,
-            #22c55e 0%,
-            #f59e0b 25%,
-            #22c55e 50%,
-            #f59e0b 75%,
-            #22c55e 100%
-          );
-          background-size: 200% 100%;
-          animation: shimmer 3s linear infinite;
-        }
-
-        .tab-button {
-          position: relative;
-          padding: 0.5rem 1rem;
-          transition: all 0.3s ease;
-        }
-
-        .tab-button::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 2px;
-          background: linear-gradient(to right, #22c55e, #f59e0b);
-          transform: scaleX(0);
-          transition: transform 0.3s ease;
-        }
-
-        .tab-button.active::after {
-          transform: scaleX(1);
-        }
-      `}</style>
-
       {/* Navigation */}
       <nav className="border-b border-white/10 bg-black/80 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 py-5">
@@ -259,7 +158,7 @@ const CampulseLanding = () => {
                     Challenge
                   </span>
                 </h2>
-                <div className="gradient-border bg-gray-900/60 border border-green-500/20 rounded-2xl p-8 backdrop-blur-sm">
+                <div className="problem-card rounded-2xl p-8">
                   <p className="text-lg text-gray-200 leading-relaxed mb-6">
                     University life at the University of Ilorin presents students with numerous challenges in managing academics, campus resources, and extracurricular activities. Students struggle to keep track of deadlines, exams, lectures, and events while simultaneously seeking verified information about scholarships, internships, side gigs, and campus services.
                   </p>
@@ -288,7 +187,7 @@ const CampulseLanding = () => {
                     Solution
                   </span>
                 </h2>
-                <div className="gradient-border bg-gray-900/60 border border-green-500/20 rounded-2xl p-8 backdrop-blur-sm mb-12">
+                <div className="solution-card rounded-2xl p-8 mb-12">
                   <p className="text-lg text-gray-200 leading-relaxed">
                     Campulse is a campus operating system designed to solve these challenges by consolidating productivity tools, community platforms, opportunities marketplaces, and campus services into a single intelligent platform. The solution leverages cloud infrastructure and artificial intelligence to ensure scalability, security, and efficiency.
                   </p>
@@ -321,7 +220,7 @@ const CampulseLanding = () => {
                 <div 
                   data-animate
                   id="feature-1"
-                  className="feature-card bg-gray-900/80 border border-green-500/20 rounded-2xl p-8 backdrop-blur-sm"
+                  className="feature-card rounded-2xl p-8"
                   style={visibleSections.has('feature-1') ? { opacity: 1, transform: 'translateY(0)' } : {}}
                 >
                   <h3 className="text-2xl font-semibold text-white mb-4">
@@ -335,7 +234,7 @@ const CampulseLanding = () => {
                 <div 
                   data-animate
                   id="feature-2"
-                  className="feature-card bg-gray-900/80 border border-green-500/20 rounded-2xl p-8 backdrop-blur-sm"
+                  className="feature-card rounded-2xl p-8"
                   style={visibleSections.has('feature-2') ? { opacity: 1, transform: 'translateY(0)' } : {}}
                 >
                   <h3 className="text-2xl font-semibold text-white mb-4">
@@ -349,7 +248,7 @@ const CampulseLanding = () => {
                 <div 
                   data-animate
                   id="feature-3"
-                  className="feature-card bg-gray-900/80 border border-green-500/20 rounded-2xl p-8 backdrop-blur-sm"
+                  className="feature-card rounded-2xl p-8"
                   style={visibleSections.has('feature-3') ? { opacity: 1, transform: 'translateY(0)' } : {}}
                 >
                   <h3 className="text-2xl font-semibold text-white mb-4">
@@ -363,7 +262,7 @@ const CampulseLanding = () => {
                 <div 
                   data-animate
                   id="feature-4"
-                  className="feature-card bg-gray-900/80 border border-green-500/20 rounded-2xl p-8 backdrop-blur-sm"
+                  className="feature-card rounded-2xl p-8"
                   style={visibleSections.has('feature-4') ? { opacity: 1, transform: 'translateY(0)' } : {}}
                 >
                   <h3 className="text-2xl font-semibold text-white mb-4">
@@ -392,7 +291,7 @@ const CampulseLanding = () => {
                   </span>
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="gradient-border bg-gray-900/60 border border-green-500/20 rounded-xl p-6 backdrop-blur-sm">
+                  <div className="benefit-card green rounded-xl p-6">
                     <h3 className="text-xl font-bold text-white mb-3">For Students</h3>
                     <ul className="space-y-2 text-gray-200">
                       <li>• Centralized access to all campus resources</li>
@@ -402,7 +301,7 @@ const CampulseLanding = () => {
                     </ul>
                   </div>
                   
-                  <div className="gradient-border bg-gray-900/60 border border-amber-500/20 rounded-xl p-6 backdrop-blur-sm">
+                  <div className="benefit-card amber rounded-xl p-6">
                     <h3 className="text-xl font-bold text-white mb-3">For Administration</h3>
                     <ul className="space-y-2 text-gray-200">
                       <li>• Real-time analytics dashboards</li>
@@ -461,7 +360,7 @@ const CampulseLanding = () => {
                   started it all
                 </span>
               </h2>
-              <div className="max-w-2xl mx-auto gradient-border bg-gray-900/60 border border-green-500/20 rounded-2xl p-8 backdrop-blur-sm">
+              <div className="max-w-2xl mx-auto creator-card rounded-2xl p-8">
                 <div className="flex flex-col items-center text-center">
                   <div className="w-32 h-32 rounded-full bg-gray-800 mb-6 overflow-hidden border-4 border-green-500/30 shadow-xl">
                     <img 
@@ -493,7 +392,7 @@ const CampulseLanding = () => {
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {teamMembers.developers.map((dev, index) => (
-                  <div key={index} className="feature-card bg-gray-900/80 border border-amber-500/20 rounded-2xl p-6 backdrop-blur-sm">
+                  <div key={index} className="dev-card rounded-2xl p-6">
                     <div className="flex flex-col items-center text-center">
                       <div className="w-24 h-24 rounded-full bg-gray-800 mb-4 overflow-hidden border-4 border-amber-500/30 shadow-lg">
                         <img 
