@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
+import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
@@ -11,7 +12,7 @@ import Tutors from './pages/Tutors';
 // Protected Route Component with Navbar
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
-
+  
   if (loading) {
     return (
       <div style={{
@@ -26,7 +27,7 @@ const ProtectedRoute = ({ children }) => {
       </div>
     );
   }
-
+  
   return isAuthenticated ? (
     <>
       <Navbar />
@@ -37,10 +38,9 @@ const ProtectedRoute = ({ children }) => {
   );
 };
 
-// Public Route Component (redirect to dashboard if already logged in)
 const PublicRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
-
+  
   if (loading) {
     return (
       <div style={{
@@ -55,7 +55,7 @@ const PublicRoute = ({ children }) => {
       </div>
     );
   }
-
+  
   return !isAuthenticated ? children : <Navigate to="/dashboard" replace />;
 };
 
@@ -64,6 +64,9 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
+          {/* Landing Page - Always accessible */}
+          <Route path="/" element={<LandingPage />} />
+          
           {/* Public Routes */}
           <Route
             path="/login"
@@ -81,7 +84,7 @@ function App() {
               </PublicRoute>
             }
           />
-
+          
           {/* Protected Routes */}
           <Route
             path="/dashboard"
@@ -115,12 +118,9 @@ function App() {
               </ProtectedRoute>
             }
           />
-
-          {/* Default Route */}
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
-
-          {/* 404 Route */}
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          
+          {/* 404 Route - redirect to landing page */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AuthProvider>
     </Router>
